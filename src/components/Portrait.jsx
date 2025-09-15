@@ -4,7 +4,7 @@ function Portrait() {
       <img
         src="/Portrait.png"
         alt="Colin B. Fink"
-        className="m-8 bg-gray-200 h-100 w-100 object-cover rounded-full"
+        className="m-8 bg-gray-200 size-75 md:size-100 object-cover rounded-full"
       />
       <h1 className="text-4xl italic font-bold text-center">Colin B. Fink</h1>
       <h2 className="text-2xl text-center">Writer | Director | Editor</h2>

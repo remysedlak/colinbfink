@@ -55,7 +55,7 @@ export default function Navbar() {
         aria-label="Open menu"
         onClick={() => setMenuOpen((open) => !open)}
       >
-        <img src="/open-menu.svg" alt="Open menu" className="w-8 h-8" />
+        <img src="/buttons/open-menu.svg" alt="Open menu" className="w-8 h-8" />
       </button>
       {/* Mobile Dropdown Menu */}
       {menuOpen && (

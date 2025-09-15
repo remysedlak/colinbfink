@@ -3,7 +3,7 @@ function Socials() {
     <ul className="flex flex-col grid-cols-2 gap-4 mt-8">
       <li className="flex flex-row gap-x-2">
         <img
-          src="public/icons/linkedin.svg"
+          src="/icons/linkedin.svg"
           alt="LinkedIn"
           className="size-7"
         />
@@ -18,7 +18,7 @@ function Socials() {
       </li>
       <li className="flex flex-row gap-x-2">
         <img
-          src="public/icons/instagram.svg"
+          src="/icons/instagram.svg"
           alt="Instagram"
           className="size-7"
         />
@@ -32,7 +32,7 @@ function Socials() {
         </a>
       </li>
       <li className="flex flex-row gap-x-2">
-        <img src="public/icons/imdb.svg" alt="IMDB" className="size-7" />
+        <img src="/icons/imdb.svg" alt="IMDB" className="size-7" />
         <a
           className="hover:underline text-2xl"
           href="https://www.imdb.com/name/nm16958516/"
@@ -43,7 +43,7 @@ function Socials() {
         </a>
       </li>
       <li className="flex flex-row gap-x-2">
-        <img src="public/icons/X.svg" alt="Twitter" className="size-7" />
+        <img src="/icons/X.svg" alt="Twitter" className="size-7" />
         <a
           className="hover:underline text-2xl"
           href="https://twitter.com/ColinBFink"
@@ -54,7 +54,7 @@ function Socials() {
         </a>
       </li>
       <li className="flex flex-row gap-x-2">
-        <img src="public/icons/youtube.png" alt="Youtube" className="size-7" />
+        <img src="/icons/youtube.png" alt="Youtube" className="size-7" />
         <a
           className="hover:underline text-2xl"
           href="https://www.youtube.com/channel/UC123456789"
@@ -65,7 +65,7 @@ function Socials() {
         </a>
       </li>
       <li className="flex flex-row gap-x-2">
-        <img src="public/icons/vimeo.png" alt="Vimeo" className="size-7" />
+        <img src="/icons/vimeo.png" alt="Vimeo" className="size-7" />
         <a
           className="hover:underline text-2xl"
           href="https://www.vimeo.com/ColinBFink"
@@ -77,7 +77,7 @@ function Socials() {
       </li>
       <li className="flex flex-row gap-x-2">
         <img
-          src="public/icons/facebook.svg"
+          src="/icons/facebook.svg"
           alt="Facebook"
           className="size-7"
         />

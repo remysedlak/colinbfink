@@ -2,7 +2,7 @@ function AboutMe() {
   return (
     <div className="flex flex-col max-w-md items-center mt-16">
       <h1 className="text-4xl italic font-bold text-center">About Me</h1>
-      <div className="mt-4 w-200 bg-transparent border-y-2 p-6">
+      <div className="mt-4 w-80 md:w-120 lg:180  bg-transparent border-y-2 p-6">
         <h1 className="text-3xl font-bold">Hi I am Colin, the Finkster</h1>
         <p className="text-xl">
           lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
