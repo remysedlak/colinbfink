@@ -1,0 +1,25 @@
+{
+    "slides": [
+        {
+            "image": "/slideshow/1.jpg",
+            "caption": "On the set of 'The Last Stand' (2023)"
+        },
+        {
+            "image": "/slideshow/2.jpg",
+            "caption": "Directing a scene in 'The Last Stand'"
+        },
+        {
+            "image": "/slideshow/3.jpg",
+            "caption": "Behind the scenes of 'The Last Stand'"
+        },
+        {
+            "image": "/slideshow/4.jpg",
+            "caption": "On location for 'The Last Stand'"
+        },
+        {
+            "image": "/slideshow/5.jpg",
+            "caption": "With the cast of 'The Last Stand'"
+        }
+    ]
+
+}

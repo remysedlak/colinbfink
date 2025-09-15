@@ -1,0 +1,130 @@
+{
+  "films": [
+    {
+      "title": "Batman & Alfred (To Catch A Predator Parody)",
+      "date": "2024-03-05",
+      "genre": "Comedy",
+      "image": "posters/ALFRED_POSTERTMDB.jpg"
+    },
+    {
+      "title": "BIGFOOT the Hunt",
+      "date": "2022-05-31",
+      "genre": ["Thriller", "Horror"],
+      "image": "posters/Bigfoot1_Poster(TMDB).jpg"
+    },
+    {
+      "title": "BIGFOOT II, The Hunt Continues",
+      "date": "2023-01-01",
+      "genre": ["Action", "Horror"],
+      "image": ""
+    },
+    {
+      "title": "Bill & Ted’s Painstaking Parody",
+      "date": "2022-05-30",
+      "genre": ["Adventure", "Comedy"],
+      "image": "posters/Bill and Ted Poster.jpg"
+    },
+    {
+      "title": "Chefs Kiss",
+      "date": "2022-07-24",
+      "genre": "Thriller",
+      "image": "posters/ChefsKiss_TMDB.jpg"
+    },
+    {
+      "title": "Deadly Drive",
+      "date": "2024-05-18",
+      "genre": ["Thriller", "Comedy"],
+      "image": "posters/DeadlyDrivePoster(TMDB).jpg"
+    },
+    {
+      "title": "Dust And Command",
+      "date": "2025-05-19",
+      "genre": ["Thriller","Western"],
+      "image": "posters/Dust&Command_Poster1.png"
+    },
+    {
+      "title": "Sigmund Freud, a Biopic",
+      "date": "2023-05-22",
+      "genre": ["Drama", "History"],
+      "image": "posters/FREUD_POSTER_TMDB.jpg"
+    },
+    {
+      "title": "Full Method",
+      "date": "2024-04-17",
+      "genre": ["Documentary", "Drama"],
+      "image": "posters/Full.Method_noisyPoster(TMDB)2.jpg"
+    },
+    {
+      "title": "Green Man",
+      "date": "2024-12-10",
+      "genre": ["Thriller","Horror","Mystery"],
+      "image": "posters/GreenMan(TMDB).jpg"
+    },
+    {
+      "title": "Kenny Curse",
+      "date": "2024-03-27",
+      "genre": ["Documentary", "History"],
+      "image": "posters/KENNEDYCURSE_POSTER(TMDB).jpg"
+    },
+    {
+      "title": "OPERATION: COURSE CORRECT",
+      "date": "2024-10-15",
+      "genre": ["Thriller", "Horror"],
+      "image": "posters/OperationCourseCorrectJPG(TMDB).jpg"
+    },
+    {
+      "title": "Plato’s Allegory of The Cave: A Matrix Parody",
+      "date": "2021-09-28",
+      "genre": ["Comedy", "Action"],
+      "image": "posters/Plato's Allegory of The Cave_ A Matrix Parody - POSTER.jpg"
+    },
+    {
+      "title": "The Race",
+      "date": "2023-01-05",
+      "genre": "Thriller",
+      "image": "posters/racepsoter_tmdb.jpg"
+    },
+    {
+      "title": "Dream Catcher X",
+      "date": "2023-12-05",
+      "genre": ["Documentary", "Horror", "Thriller"],
+      "image": "posters/TMDB_DREAM_POSTER.jpg"
+    },
+    {
+      "title": "Get Nutty",
+      "date": "2024-04-20",
+      "genre": "Comedy",
+      "image": "posters/TMDB_Nutty_Poster.jpg"
+    },
+    {
+      "title": "Dicks on Ticonderoga: A Study Session",
+      "date": "2024-01-30",
+      "genre": "Comedy",
+      "image": "posters/TMDB_Ticonderoga_Poster_update.jpg"
+    },
+    {
+      "title": "The Giving Tree",
+      "date": "2024-02-22",
+      "genre": "Family",
+      "image": "posters/tree_poster_TMDB.jpg"
+    },
+    {
+      "title": "The Cowboy and the Kid",
+      "date": "2022-03-01",
+      "genre": "Western",
+      "image": "posters/vanish point poster copy-Recovered-Recovered.jpg"
+    },
+    {
+      "title": "Vanish Point",
+      "date": "2023-05-20",
+      "genre": "Fantasy",
+      "image": "posters/VanishPoint_Poster(TMDB).jpg"
+    },
+    {
+      "title": "Word of Mouth",
+      "date": "2021-07-27",
+      "genre": "Thriller",
+      "image": "posters/WordofMouth_Poster(TMDB).jpg"
+    }
+  ]
+}
