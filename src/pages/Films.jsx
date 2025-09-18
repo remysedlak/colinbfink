@@ -1,6 +1,16 @@
 import React, { useEffect, useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 
+// Utility function to create SEO-friendly slugs
+const createSlug = (title) => {
+  return title
+    .toLowerCase()
+    .trim()
+    .replace(/[^\w\s-]/g, '') // Remove special characters except hyphens
+    .replace(/[\s_-]+/g, '-') // Replace spaces and underscores with single hyphen
+    .replace(/^-+|-+$/g, ''); // Remove leading/trailing hyphens
+};
+
 function Films() {
   const [films, setFilms] = useState([]);
   const [sortOrder, setSortOrder] = useState("oldest");
@@ -77,7 +87,7 @@ function Films() {
         {displayedFilms.map((film, i) => (
           <Link
             key={i}
-            to={`/films/${encodeURIComponent(film.title)}`}
+            to={`/films/${createSlug(film.title)}`}
             className="flex flex-col items-center text-center"
           >
             {film.image ? (
@@ -102,4 +112,5 @@ function Films() {
     </div>
   );
 }
+
 export default Films;

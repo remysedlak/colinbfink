@@ -4,10 +4,11 @@
       "title": "Batman & Alfred (To Catch A Predator Parody)",
       "date": "2024-03-05",
       "genre": "Comedy",
+      "duration": "",
       "image": "posters/ALFRED_POSTERTMDB.jpg"
     },
     {
-      "title": "BIGFOOT the Hunt",
+      "title": "BIGFOOT, The Hunt",
       "date": "2022-05-31",
       "genre": ["Thriller", "Horror"],
       "image": "posters/Bigfoot1_Poster(TMDB).jpg"
@@ -61,7 +62,7 @@
       "image": "posters/GreenMan(TMDB).jpg"
     },
     {
-      "title": "Kenny Curse",
+      "title": "The Kennedy Curse",
       "date": "2024-03-27",
       "genre": ["Documentary", "History"],
       "image": "posters/KENNEDYCURSE_POSTER(TMDB).jpg"

@@ -1,20 +1,33 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
+// Same utility function from Films component
+const createSlug = (title) => {
+  return title
+    .toLowerCase()
+    .trim()
+    .replace(/[^\w\s-]/g, '') // Remove special characters except hyphens
+    .replace(/[\s_-]+/g, '-') // Replace spaces and underscores with single hyphen
+    .replace(/^-+|-+$/g, ''); // Remove leading/trailing hyphens
+};
+
+// Function to find film by slug
+const findFilmBySlug = (films, slug) => {
+  return films.find(film => createSlug(film.title) === slug);
+};
+
 export default function FilmPage() {
-  const { title } = useParams();
+  const { title: slug } = useParams(); // Now this is a slug, not encoded title
   const [film, setFilm] = useState(null);
 
   useEffect(() => {
     fetch("/data/films.json")
       .then((res) => res.json())
       .then((data) => {
-        const found = data.films.find(
-          (f) => f.title === decodeURIComponent(title)
-        );
+        const found = findFilmBySlug(data.films, slug);
         setFilm(found || null);
       });
-  }, [title]);
+  }, [slug]);
 
   if (!film) {
     return <h2 className="text-center mt-10">Film not found</h2>;
