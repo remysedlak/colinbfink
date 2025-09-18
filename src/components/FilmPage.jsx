@@ -21,6 +21,8 @@ function FilmPage() {
   const { title: slug } = useParams();
   const [film, setFilm] = useState(null);
   const [imageMap, setImageMap] = useState({});
+  const [loading, setLoading] = useState(true);
+  const [notFound, setNotFound] = useState(false);
 
   // Helper to normalize titles for matching
   // Improved normalization: remove apostrophes, smart quotes, replace &/and, collapse spaces, lowercase
@@ -53,16 +55,40 @@ function FilmPage() {
   }, []);
 
   useEffect(() => {
+    setLoading(true);
+    setNotFound(false);
+    
     fetch("/data/letterboxd_films.json")
       .then((res) => res.json())
       .then((data) => {
         const found = findFilmBySlug(data, slug);
-        setFilm(found || null);
+        if (found) {
+          setFilm(found);
+          setNotFound(false);
+        } else {
+          setFilm(null);
+          setNotFound(true);
+        }
+        setLoading(false);
+      })
+      .catch(() => {
+        setFilm(null);
+        setNotFound(true);
+        setLoading(false);
       });
   }, [slug]);
 
-  if (!film) {
+  if (loading) {
     return <h2 className="text-center mt-10">Loading film...</h2>;
+  }
+
+  if (notFound) {
+    return (
+      <div className="text-center mt-10">
+        <h2 className="text-2xl font-bold text-gray-800 mb-4">Film not found</h2>
+        <p className="text-gray-600">The film you're looking for doesn't exist or the URL is invalid.</p>
+      </div>
+    );
   }
 
   // Use image directly from letterboxd_films.json

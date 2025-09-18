@@ -10,7 +10,7 @@ export default function Navbar() {
           <img
             src="/Signature.png"
             alt="Signature"
-            style={{ maxWidth: '180px' }}
+            style={{ maxWidth: '160px' }}
           />
         </Link>
       </div>
