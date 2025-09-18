@@ -1,20 +1,20 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import Vimeo from '@u-wave/react-vimeo';
+import Vimeo from "@u-wave/react-vimeo";
 
 // Same utility function from Films component
 const createSlug = (title) => {
   return title
     .toLowerCase()
     .trim()
-    .replace(/[^\w\s-]/g, '') // Remove special characters except hyphens
-    .replace(/[\s_-]+/g, '-') // Replace spaces and underscores with single hyphen
-    .replace(/^-+|-+$/g, ''); // Remove leading/trailing hyphens
+    .replace(/[^\w\s-]/g, "") // Remove special characters except hyphens
+    .replace(/[\s_-]+/g, "-") // Replace spaces and underscores with single hyphen
+    .replace(/^-+|-+$/g, ""); // Remove leading/trailing hyphens
 };
 
 // Function to find film by slug
 const findFilmBySlug = (films, slug) => {
-  return films.find(film => createSlug(film.title) === slug);
+  return films.find((film) => createSlug(film.title) === slug);
 };
 
 function FilmPage() {
@@ -25,13 +25,13 @@ function FilmPage() {
   // Helper to normalize titles for matching
   // Improved normalization: remove apostrophes, smart quotes, replace &/and, collapse spaces, lowercase
   const normalizeTitle = (title) => {
-    if (!title) return '';
+    if (!title) return "";
     let t = title.toLowerCase().trim();
     t = t.replace(/[''"""]/g, ""); // remove quotes
     t = t.replace(/\band\b/g, "&"); // replace 'and' with '&'
     t = t.replace(/&/g, "and"); // replace '&' with 'and'
-    t = t.replace(/[^\w\s-]/g, ''); // remove non-word except space/hyphen
-    t = t.replace(/[\s_-]+/g, '-'); // collapse spaces/hyphens
+    t = t.replace(/[^\w\s-]/g, ""); // remove non-word except space/hyphen
+    t = t.replace(/[\s_-]+/g, "-"); // collapse spaces/hyphens
     return t;
   };
 
@@ -42,7 +42,7 @@ function FilmPage() {
       .then((data) => {
         if (data && Array.isArray(data.films)) {
           const map = {};
-          data.films.forEach(f => {
+          data.films.forEach((f) => {
             const key = normalizeTitle(f.title);
             map[key] = f.image;
           });
@@ -67,13 +67,14 @@ function FilmPage() {
 
   // Use image directly from letterboxd_films.json
   const rawImgSrc = film.image;
-  const imgSrc = rawImgSrc && !rawImgSrc.startsWith('/') ? `/${rawImgSrc}` : rawImgSrc;
-  
+  const imgSrc =
+    rawImgSrc && !rawImgSrc.startsWith("/") ? `/${rawImgSrc}` : rawImgSrc;
+
   console.log("Image source debug:", {
     raw: rawImgSrc,
     processed: imgSrc,
     type: typeof imgSrc,
-    truthy: !!imgSrc
+    truthy: !!imgSrc,
   });
 
   return (
@@ -86,12 +87,14 @@ function FilmPage() {
               src={imgSrc}
               alt={film.title}
               className="w-64 h-auto rounded shadow"
-              onLoad={() => console.log("✅ Image loaded successfully:", imgSrc)}
+              onLoad={() =>
+                console.log("✅ Image loaded successfully:", imgSrc)
+              }
               onError={(e) => {
                 console.error("❌ Image failed to load:", {
                   src: imgSrc,
                   error: e.target.error,
-                  message: "Image not found or failed to load"
+                  message: "Image not found or failed to load",
                 });
               }}
             />
@@ -110,23 +113,28 @@ function FilmPage() {
           {/* Genres */}
           {film.genre && (
             <div className="mb-4">
-              {Array.isArray(film.genre)
-                ? film.genre.map((genre, i) => (
-                    <span key={i} className="inline-block bg-gray-200 px-3 py-1 text-sm mr-2 mb-2 rounded">
-                      {genre}
-                    </span>
-                  ))
-                : (
-                    <span className="inline-block bg-gray-200 px-3 py-1 text-sm mr-2 mb-2 rounded">
-                      {film.genre}
-                    </span>
-                  )}
+              {Array.isArray(film.genre) ? (
+                film.genre.map((genre, i) => (
+                  <span
+                    key={i}
+                    className="inline-block bg-gray-100 hover:bg-gray-200  px-3 py-1 text-sm mr-2 mb-2 rounded"
+                  >
+                    {genre}
+                  </span>
+                ))
+              ) : (
+                <span className="inline-block bg-gray-200 px-3 py-1 text-sm mr-2 mb-2 rounded">
+                  {film.genre}
+                </span>
+              )}
             </div>
           )}
 
           {/* Duration */}
           {film.duration && (
-            <p className="mb-2"><strong>Duration:</strong> {film.duration}</p>
+            <p className="mb-2">
+              <strong>Duration:</strong> {film.duration}
+            </p>
           )}
 
           {/* Logline */}
@@ -140,7 +148,9 @@ function FilmPage() {
           {film.description && (
             <div className="mb-6">
               <h3 className="text-xl font-semibold mb-2">Synopsis</h3>
-              <p className="text-gray-700 leading-relaxed">{film.description}</p>
+              <p className="text-gray-700 leading-relaxed">
+                {film.description}
+              </p>
             </div>
           )}
 
@@ -174,10 +184,23 @@ function FilmPage() {
                   rel="noopener noreferrer"
                   className="text-blue-600 underline hover:text-blue-800 flex items-center gap-1 w-fit"
                 >
-                  <img src="/icons/letterboxd.svg" alt="Letterboxd" className="size-6" />
+                  <img
+                    src="/icons/letterboxd.svg"
+                    alt="Letterboxd"
+                    className="size-6"
+                  />
                   Letterboxd
-                  <svg width="10" height="10" xmlns="http://www.w3.org/2000/svg" class="ipc-icon ipc-icon--launch-inline ipc-icon--inline ipc-link__launch-icon" viewBox="0 0 24 24" fill="currentColor" role="presentation"><path d="M21.6 21.6H2.4V2.4h7.2V0H0v24h24v-9.6h-2.4v7.2zM14.4 0v2.4h4.8L7.195 14.49l2.4 2.4L21.6 4.8v4.8H24V0h-9.6z"></path></svg>
-
+                  <svg
+                    width="10"
+                    height="10"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="ipc-icon ipc-icon--launch-inline ipc-icon--inline ipc-link__launch-icon"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    role="presentation"
+                  >
+                    <path d="M21.6 21.6H2.4V2.4h7.2V0H0v24h24v-9.6h-2.4v7.2zM14.4 0v2.4h4.8L7.195 14.49l2.4 2.4L21.6 4.8v4.8H24V0h-9.6z"></path>
+                  </svg>
                 </a>
               )}
               {film.imdb_url && (
@@ -189,9 +212,18 @@ function FilmPage() {
                 >
                   <img src="/icons/imdb.svg" alt="IMDb" className="size-6" />
                   IMDb
-                  <svg width="10" height="10" xmlns="http://www.w3.org/2000/svg" class="ipc-icon ipc-icon--launch-inline ipc-icon--inline ipc-link__launch-icon" viewBox="0 0 24 24" fill="currentColor" role="presentation"><path d="M21.6 21.6H2.4V2.4h7.2V0H0v24h24v-9.6h-2.4v7.2zM14.4 0v2.4h4.8L7.195 14.49l2.4 2.4L21.6 4.8v4.8H24V0h-9.6z"></path></svg>
-
-                      </a>
+                  <svg
+                    width="10"
+                    height="10"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="ipc-icon ipc-icon--launch-inline ipc-icon--inline ipc-link__launch-icon"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    role="presentation"
+                  >
+                    <path d="M21.6 21.6H2.4V2.4h7.2V0H0v24h24v-9.6h-2.4v7.2zM14.4 0v2.4h4.8L7.195 14.49l2.4 2.4L21.6 4.8v4.8H24V0h-9.6z"></path>
+                  </svg>
+                </a>
               )}
               {film.vimeo_url && (
                 <a
@@ -240,9 +272,12 @@ function FilmPage() {
             <h3 className="text-2xl font-semibold mb-4">Cast</h3>
             <div className="space-y-3">
               {film.cast.map((person, i) => (
-                <div key={i} className="border-b border-gray-200 pb-2 hover:bg-gray-100">
+                <div
+                  key={i}
+                  className="border-b border-gray-200 pb-2 hover:bg-gray-100"
+                >
                   <div className="font-medium text-lg">{person.name}</div>
-                  {person.role && person.role !== 'Actor' && (
+                  {person.role && person.role !== "Actor" && (
                     <div className="text-gray-600">{person.role}</div>
                   )}
                 </div>
@@ -257,7 +292,10 @@ function FilmPage() {
             <h3 className="text-2xl font-semibold mb-4">Crew</h3>
             <div className="space-y-3">
               {film.crew.map((person, i) => (
-                <div key={i} className="border-b border-gray-200 pb-2 hover:bg-gray-100">
+                <div
+                  key={i}
+                  className="border-b border-gray-200 pb-2 hover:bg-gray-100"
+                >
                   <div className="font-medium text-lg">{person.name}</div>
                   <div className="text-gray-600">{person.position}</div>
                 </div>
@@ -271,9 +309,21 @@ function FilmPage() {
       <div className="mt-8 pt-6 border-t border-gray-200">
         <h3 className="text-lg font-semibold mb-2">Technical Details</h3>
         <div className="text-sm text-gray-600 space-y-1">
-          {film.film_id && <div><strong>Film ID:</strong> {film.film_id}</div>}
-          {film.slug && <div><strong>Slug:</strong> {film.slug}</div>}
-          {film.full_display_name && <div><strong>Full Title:</strong> {film.full_display_name}</div>}
+          {film.film_id && (
+            <div>
+              <strong>Film ID:</strong> {film.film_id}
+            </div>
+          )}
+          {film.slug && (
+            <div>
+              <strong>Slug:</strong> {film.slug}
+            </div>
+          )}
+          {film.full_display_name && (
+            <div>
+              <strong>Full Title:</strong> {film.full_display_name}
+            </div>
+          )}
         </div>
       </div>
     </div>
