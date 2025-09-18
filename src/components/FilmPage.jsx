@@ -172,8 +172,9 @@ function FilmPage() {
                   href={film.letterboxd_url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-600 underline hover:text-blue-800"
+                  className="text-blue-600 underline hover:text-blue-800 flex items-center gap-1"
                 >
+                  <img src="/icons/letterboxd.svg" alt="Letterboxd" className="size-6" />
                   Letterboxd
                 </a>
               )}
