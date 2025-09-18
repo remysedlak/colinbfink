@@ -32,7 +32,7 @@ function Socials() {
         </a>
       </li>
       <li className="flex flex-row gap-x-2">
-        <img src="/icons/imdb.svg" alt="IMDB" className="size-7" />
+        <img src="/icons/imdb.png" alt="IMDB" className="size-7" />
         <a
           className="hover:underline text-2xl"
           href="https://www.imdb.com/name/nm16958516/"
