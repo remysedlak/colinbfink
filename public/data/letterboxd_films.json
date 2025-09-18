@@ -9,7 +9,7 @@
     "details_endpoint": "/film/dust-command/json/",
     "full_url": "https://letterboxd.com/film/dust-command/",
     "year": "2025",
-    "date": "2025",
+    "date": "2025-05-19",
     "genre": [
       "Thriller",
       "Western"
@@ -100,7 +100,7 @@
     "details_endpoint": "/film/green-mans-tunnel/json/",
     "full_url": "https://letterboxd.com/film/green-mans-tunnel/",
     "year": "2024",
-    "date": "2024",
+    "date": "2024-12-10",
     "genre": [
       "Thriller",
       "Horror",
@@ -192,7 +192,7 @@
     "details_endpoint": "/film/operation-course-correct/json/",
     "full_url": "https://letterboxd.com/film/operation-course-correct/",
     "year": "2024",
-    "date": "2024",
+    "date": "2024-10-15",
     "genre": [
       "Thriller",
       "Horror"
@@ -259,7 +259,7 @@
     "details_endpoint": "/film/deadly-drive/json/",
     "full_url": "https://letterboxd.com/film/deadly-drive/",
     "year": "2024",
-    "date": "2024",
+    "date": "2024-05-18",
     "genre": [
       "Thriller",
       "Comedy"
@@ -374,7 +374,7 @@
     "details_endpoint": "/film/get-nutty/json/",
     "full_url": "https://letterboxd.com/film/get-nutty/",
     "year": "2024",
-    "date": "2024",
+    "date": "2024-04-20",
     "genre": [
       "Comedy"
     ],
@@ -432,7 +432,7 @@
     "details_endpoint": "/film/full-method/json/",
     "full_url": "https://letterboxd.com/film/full-method/",
     "year": "2024",
-    "date": "2024",
+    "date": "2024-04-17",
     "genre": [
       "Documentary",
       "Drama"
@@ -531,7 +531,7 @@
     "details_endpoint": "/film/the-kennedy-curse/json/",
     "full_url": "https://letterboxd.com/film/the-kennedy-curse/",
     "year": "2024",
-    "date": "2024",
+    "date": "2024-03-27",
     "genre": [
       "Documentary",
       "History"
@@ -676,7 +676,7 @@
     "details_endpoint": "/film/the-giving-tree-2024/json/",
     "full_url": "https://letterboxd.com/film/the-giving-tree-2024/",
     "year": "2024",
-    "date": "2024",
+    "date": "2024-02-22",
     "genre": [
       "Family"
     ],
@@ -717,7 +717,7 @@
     "details_endpoint": "/film/dicks-on-ticonderoga-a-study-session/json/",
     "full_url": "https://letterboxd.com/film/dicks-on-ticonderoga-a-study-session/",
     "year": "2024",
-    "date": "2024",
+    "date": "2024-01-30",
     "genre": [
       "Comedy"
     ],
@@ -775,7 +775,7 @@
     "details_endpoint": "/film/dream-catcher-x/json/",
     "full_url": "https://letterboxd.com/film/dream-catcher-x/",
     "year": "2023",
-    "date": "2023",
+    "date": "2023-12-05",
     "genre": [
       "Documentary",
       "Horror",
@@ -835,7 +835,7 @@
     "details_endpoint": "/film/bigfoot-ii-the-hunt-continues/json/",
     "full_url": "https://letterboxd.com/film/bigfoot-ii-the-hunt-continues/",
     "year": "2023",
-    "date": "2023",
+    "date": "2023-01-01",
     "genre": [
       "Action",
       "Horror"
@@ -934,7 +934,7 @@
     "details_endpoint": "/film/sigmund-freud-a-biopic/json/",
     "full_url": "https://letterboxd.com/film/sigmund-freud-a-biopic/",
     "year": "2023",
-    "date": "2023",
+    "date": "2023-05-22",
     "genre": [
       "Drama",
       "History"
@@ -1005,7 +1005,7 @@
     "details_endpoint": "/film/vanish-point/json/",
     "full_url": "https://letterboxd.com/film/vanish-point/",
     "year": "2023",
-    "date": "2023",
+    "date": "2023-05-20",
     "genre": [
       "Fantasy"
     ],
@@ -1103,7 +1103,7 @@
     "details_endpoint": "/film/the-race-2023/json/",
     "full_url": "https://letterboxd.com/film/the-race-2023/",
     "year": "2023",
-    "date": "2023",
+    "date": "2023-01-05",
     "genre": [
       "Thriller"
     ],
@@ -1165,7 +1165,7 @@
     "details_endpoint": "/film/chefs-kiss-2022/json/",
     "full_url": "https://letterboxd.com/film/chefs-kiss-2022/",
     "year": "2022",
-    "date": "2022",
+    "date": "2022-07-24",
     "genre": [
       "Thriller"
     ],
@@ -1259,7 +1259,7 @@
     "details_endpoint": "/film/bigfoot-the-hunt/json/",
     "full_url": "https://letterboxd.com/film/bigfoot-the-hunt/",
     "year": "2022",
-    "date": "2022",
+    "date": "2022-05-31",
     "genre": [
       "Thriller",
       "Horror"
@@ -1322,7 +1322,7 @@
     "details_endpoint": "/film/bill-teds-painstaking-parody/json/",
     "full_url": "https://letterboxd.com/film/bill-teds-painstaking-parody/",
     "year": "2022",
-    "date": "2022",
+    "date": "2022-05-30",
     "genre": [
       "Adventure",
       "Comedy"
@@ -1405,7 +1405,7 @@
     "details_endpoint": "/film/the-cowboy-the-kid/json/",
     "full_url": "https://letterboxd.com/film/the-cowboy-the-kid/",
     "year": "2022",
-    "date": "2022",
+    "date": "2022-03-01",
     "genre": [
       "Western"
     ],
@@ -1483,7 +1483,7 @@
     "details_endpoint": "/film/platos-allegory-of-the-cave-a-matrix-parody/json/",
     "full_url": "https://letterboxd.com/film/platos-allegory-of-the-cave-a-matrix-parody/",
     "year": "2021",
-    "date": "2021",
+    "date": "2021-09-28",
     "genre": [
       "Comedy",
       "Action"
@@ -1566,7 +1566,7 @@
     "details_endpoint": "/film/word-of-mouth-2021/json/",
     "full_url": "https://letterboxd.com/film/word-of-mouth-2021/",
     "year": "2021",
-    "date": "2021",
+    "date": "2021-07-27",
     "genre": [
       "Thriller"
     ],
