@@ -88,13 +88,13 @@ function Films() {
           <Link
             key={i}
             to={`/films/${createSlug(film.title)}`}
-            className="flex flex-col items-center text-center"
+            className="flex flex-col items-center text-center transition-transform duration-200 hover:scale-105"
           >
             {film.image ? (
               <img
                 src={film.image}
                 alt={film.title}
-                className="w-full h-auto aspect-[3/4] object-top rounded shadow"
+                className="w-full h-auto aspect-[3/4] object-top shadow-md hover:shadow-xl"
                 loading="lazy"
               />
             ) : (
