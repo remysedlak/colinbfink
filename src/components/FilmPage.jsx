@@ -62,7 +62,7 @@ function FilmPage() {
   }, [slug]);
 
   if (!film) {
-    return <h2 className="text-center mt-10">Film not found</h2>;
+    return <h2 className="text-center mt-10">Loading film...</h2>;
   }
 
   // Use image directly from letterboxd_films.json

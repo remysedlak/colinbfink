@@ -47,12 +47,25 @@ function Films() {
         return false;
       });
     }
+    
+    // Helper function to extract duration in minutes from duration string
+    const getDurationInMinutes = (duration) => {
+      if (!duration) return 0;
+      const match = duration.match(/(\d+)\s*mins?/);
+      return match ? parseInt(match[1]) : 0;
+    };
+    
     return [...filtered].sort((a, b) => {
       if (sortOrder === "earliest") {
         return (a.date || "").localeCompare(b.date || "");
-      } else {
+      } else if (sortOrder === "oldest") {
         return (b.date || "").localeCompare(a.date || "");
+      } else if (sortOrder === "duration-shortest") {
+        return getDurationInMinutes(a.duration) - getDurationInMinutes(b.duration);
+      } else if (sortOrder === "duration-longest") {
+        return getDurationInMinutes(b.duration) - getDurationInMinutes(a.duration);
       }
+      return 0;
     });
   }, [films, sortOrder, genreFilter]);
 
@@ -68,6 +81,8 @@ function Films() {
           >
             <option value="earliest">Earliest</option>
             <option value="oldest">Most recent</option>
+            <option value="duration-shortest">Duration: Shortest</option>
+            <option value="duration-longest">Duration: Longest</option>
           </select>
           <select
             value={genreFilter}
