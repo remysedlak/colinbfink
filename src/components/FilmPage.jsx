@@ -166,7 +166,7 @@ function FilmPage() {
           {/* Links */}
           <div className="mb-6">
             <h3 className="text-lg font-semibold mb-2">Links</h3>
-            <div className="flex gap-4">
+            <div className="flex flex-col gap-2">
               {film.letterboxd_url && (
                 <a
                   href={film.letterboxd_url}
@@ -183,8 +183,9 @@ function FilmPage() {
                   href={film.imdb_url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-600 underline hover:text-blue-800"
+                  className="text-blue-600 underline hover:text-blue-800 flex items-center gap-1"
                 >
+                  <img src="/icons/imdb.svg" alt="IMDb" className="size-6" />
                   IMDb
                 </a>
               )}
