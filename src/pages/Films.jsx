@@ -54,7 +54,7 @@ function Films() {
           <select
             value={sortOrder}
             onChange={(e) => setSortOrder(e.target.value)}
-            className="border px-4 py-2 rounded text-xl"
+            className="border px-4 py-2 rounded text-xl hover:bg-gray-100"
           >
             <option value="earliest">Earliest</option>
             <option value="oldest">Most recent</option>
@@ -62,7 +62,7 @@ function Films() {
           <select
             value={genreFilter}
             onChange={(e) => setGenreFilter(e.target.value)}
-            className="border px-4 py-2 rounded text-xl"
+            className="border px-4 py-2 rounded text-xl hover:bg-gray-100"
           >
             <option value="">All Genres</option>
             {allGenres.map((genre) => (

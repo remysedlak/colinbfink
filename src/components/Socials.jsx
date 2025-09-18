@@ -9,7 +9,7 @@ function Socials() {
         />
         <a
           className="hover:underline text-2xl"
-          href="https://www.imdb.com/name/nm1234567/"
+          href="https://www.linkedin.com/in/colinbfink/"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -24,7 +24,7 @@ function Socials() {
         />
         <a
           className="hover:underline text-2xl"
-          href="https://www.imdb.com/name/nm1234567/"
+          href="https://www.instagram.com/colinbfink/"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -57,7 +57,7 @@ function Socials() {
         <img src="/icons/youtube.png" alt="Youtube" className="size-7" />
         <a
           className="hover:underline text-2xl"
-          href="https://www.youtube.com/channel/UC123456789"
+          href="https://www.youtube.com/@colinbfink"
           target="_blank"
           rel="noopener noreferrer"
         >
