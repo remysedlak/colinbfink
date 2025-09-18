@@ -11,9 +11,11 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.13",
+    "@u-wave/react-vimeo": "^0.9.12",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-router-dom": "^7.9.1",
+    "react-vimeo": "^2.0.0",
     "tailwindcss": "^4.1.13"
   },
   "devDependencies": {

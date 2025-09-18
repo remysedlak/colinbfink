@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Vimeo from '@u-wave/react-vimeo';
 
@@ -17,8 +17,11 @@ const findFilmBySlug = (films, slug) => {
   return films.find(film => createSlug(film.title) === slug);
 };
 
+
+
 function FilmPage() {
   const { title: slug } = useParams();
+  const location = useLocation();
   const [film, setFilm] = useState(null);
   const [imageMap, setImageMap] = useState({});
 
@@ -27,7 +30,7 @@ function FilmPage() {
   const normalizeTitle = (title) => {
     if (!title) return '';
     let t = title.toLowerCase().trim();
-    t = t.replace(/[''"""]/g, ""); // remove quotes
+    t = t.replace(/[’'"“”]/g, ""); // remove quotes
     t = t.replace(/\band\b/g, "&"); // replace 'and' with '&'
     t = t.replace(/&/g, "and"); // replace '&' with 'and'
     t = t.replace(/[^\w\s-]/g, ''); // remove non-word except space/hyphen
@@ -65,16 +68,26 @@ function FilmPage() {
     return <h2 className="text-center mt-10">Film not found</h2>;
   }
 
-  // Use image directly from letterboxd_films.json
-  const rawImgSrc = film.image;
-  const imgSrc = rawImgSrc && !rawImgSrc.startsWith('/') ? `/${rawImgSrc}` : rawImgSrc;
-  
-  console.log("Image source debug:", {
-    raw: rawImgSrc,
-    processed: imgSrc,
-    type: typeof imgSrc,
-    truthy: !!imgSrc
-  });
+  // Use image from films.json if image is null/empty in letterboxd_films.json
+  // Use image from Link state if available, else fallback to old logic
+  let imgSrc = location.state && location.state.imgSrc;
+  if (!imgSrc) {
+    // fallback: use image from films.json (imageMap) as before
+    if (film && film.title) {
+      let key = normalizeTitle(film.title);
+      imgSrc = imageMap[key] || null;
+      if (!imgSrc) {
+        if (key.includes('and')) {
+          imgSrc = imageMap[key.replace('and', '&')];
+        } else if (key.includes('&')) {
+          imgSrc = imageMap[key.replace('&', 'and')];
+        }
+      }
+      if (!imgSrc) {
+        imgSrc = imageMap[key.replace(/-/g, '')];
+      }
+    }
+  }
 
   return (
     <div className="p-8 max-w-6xl mx-auto">
@@ -86,14 +99,6 @@ function FilmPage() {
               src={imgSrc}
               alt={film.title}
               className="w-64 h-auto rounded shadow"
-              onLoad={() => console.log("✅ Image loaded successfully:", imgSrc)}
-              onError={(e) => {
-                console.error("❌ Image failed to load:", {
-                  src: imgSrc,
-                  error: e.target.error,
-                  message: "Image not found or failed to load"
-                });
-              }}
             />
           ) : (
             <div className="w-64 h-96 bg-gray-200 rounded flex items-center justify-center">
@@ -234,7 +239,7 @@ function FilmPage() {
             <h3 className="text-2xl font-semibold mb-4">Cast</h3>
             <div className="space-y-3">
               {film.cast.map((person, i) => (
-                <div key={i} className="border-b border-gray-200 pb-2 hover:bg-gray-100">
+                <div key={i} className="border-b border-gray-200 pb-2">
                   <div className="font-medium text-lg">{person.name}</div>
                   {person.role && person.role !== 'Actor' && (
                     <div className="text-gray-600">{person.role}</div>
@@ -251,7 +256,7 @@ function FilmPage() {
             <h3 className="text-2xl font-semibold mb-4">Crew</h3>
             <div className="space-y-3">
               {film.crew.map((person, i) => (
-                <div key={i} className="border-b border-gray-200 pb-2 hover:bg-gray-100">
+                <div key={i} className="border-b border-gray-200 pb-2">
                   <div className="font-medium text-lg">{person.name}</div>
                   <div className="text-gray-600">{person.position}</div>
                 </div>

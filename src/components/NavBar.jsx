@@ -4,7 +4,7 @@ import { useState } from "react";
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   return (
-    <nav className="flex gap-4 p-3 border-b px-6 items-center relative">
+    <nav className="flex gap-4  border-b px-6 items-center relative">
       <div className="flex items-center gap-3">
         <Link to="/">
           <img
