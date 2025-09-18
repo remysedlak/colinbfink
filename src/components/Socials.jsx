@@ -83,7 +83,7 @@ function Socials() {
         />
         <a
           className="hover:underline text-2xl"
-          href="https://www.facebook.com/ColinBFink"
+          href="https://www.facebook.com/profile.php?id=61572665027270"
           target="_blank"
           rel="noopener noreferrer"
         >
