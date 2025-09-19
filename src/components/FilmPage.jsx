@@ -17,6 +17,30 @@ const findFilmBySlug = (films, slug) => {
   return films.find((film) => createSlug(film.title) === slug);
 };
 
+// Function to format date in human-readable format
+const formatDate = (dateString) => {
+  if (!dateString) return "";
+  
+  const date = new Date(dateString);
+  if (isNaN(date.getTime())) return dateString; // Return original if invalid
+  
+  const options = { 
+    year: 'numeric', 
+    month: 'long', 
+    day: 'numeric' 
+  };
+  
+  const formatted = date.toLocaleDateString('en-US', options);
+  // Add ordinal suffix to day
+  const day = date.getDate();
+  let suffix = 'th';
+  if (day % 10 === 1 && day !== 11) suffix = 'st';
+  else if (day % 10 === 2 && day !== 12) suffix = 'nd';
+  else if (day % 10 === 3 && day !== 13) suffix = 'rd';
+  
+  return formatted.replace(/(\d+),/, `$1${suffix},`);
+};
+
 function FilmPage() {
   const { title: slug } = useParams();
   const [film, setFilm] = useState(null);
@@ -134,7 +158,7 @@ function FilmPage() {
         {/* Film Details */}
         <div className="flex-1">
           <h1 className="text-4xl font-bold mb-2">{film.title}</h1>
-          <p className="text-xl text-gray-600 mb-4">{film.date}</p>
+          <p className="text-xl text-gray-600 mb-4">{formatDate(film.date)}</p>
 
           {/* Genres */}
           {film.genre && (
@@ -329,28 +353,6 @@ function FilmPage() {
             </div>
           </div>
         )}
-      </div>
-
-      {/* Technical Details */}
-      <div className="mt-8 pt-6 border-t border-gray-200">
-        <h3 className="text-lg font-semibold mb-2">Technical Details</h3>
-        <div className="text-sm text-gray-600 space-y-1">
-          {film.film_id && (
-            <div>
-              <strong>Film ID:</strong> {film.film_id}
-            </div>
-          )}
-          {film.slug && (
-            <div>
-              <strong>Slug:</strong> {film.slug}
-            </div>
-          )}
-          {film.full_display_name && (
-            <div>
-              <strong>Full Title:</strong> {film.full_display_name}
-            </div>
-          )}
-        </div>
       </div>
     </div>
   );
