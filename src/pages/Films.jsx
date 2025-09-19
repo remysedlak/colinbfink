@@ -15,12 +15,58 @@ function Films() {
   const [films, setFilms] = useState([]);
   const [sortOrder, setSortOrder] = useState("oldest");
   const [genreFilter, setGenreFilter] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [preloadedImages, setPreloadedImages] = useState(new Map());
 
   useEffect(() => {
+    setLoading(true);
     fetch("/data/letterboxd_films.json")
       .then((res) => res.json())
-      .then((data) => setFilms(Array.isArray(data) ? data : []))
-      .catch(() => setFilms([]));
+      .then((data) => {
+        const filmsData = Array.isArray(data) ? data : [];
+        setFilms(filmsData);
+        
+        // Preload all images and store them
+        const imageCache = new Map();
+        const imagePromises = filmsData
+          .filter(film => film.image)
+          .map(film => {
+            return new Promise((resolve) => {
+              const img = new Image();
+              img.onload = () => {
+                // Store the loaded image object
+                imageCache.set(film.image, img);
+                console.log(`✅ Loaded: ${film.title}`);
+                resolve();
+              };
+              img.onerror = () => {
+                console.log(`❌ Failed: ${film.title}`);
+                resolve(); // Still resolve if image fails
+              };
+              img.src = film.image;
+            });
+          });
+        
+        // Wait for all images to load
+        Promise.all(imagePromises).then(() => {
+          console.log("All images preloaded and cached!");
+          setPreloadedImages(imageCache);
+          // Add small delay to ensure everything is ready
+          setTimeout(() => {
+            setLoading(false);
+          }, 500);
+        });
+        
+        // Fallback timeout in case some images take too long
+        setTimeout(() => {
+          setPreloadedImages(imageCache);
+          setLoading(false);
+        }, 10000); // 10 second max wait
+      })
+      .catch(() => {
+        setFilms([]);
+        setLoading(false);
+      });
   }, []);
 
   const allGenres = useMemo(() => {
@@ -69,6 +115,21 @@ function Films() {
     });
   }, [films, sortOrder, genreFilter]);
 
+  // Show loading screen while images are preloading
+  if (loading) {
+    return (
+      <div className="fixed inset-0 bg-white flex flex-col items-center justify-center z-50">
+        <img 
+          src="/gifs/camera.gif" 
+          alt="Loading..." 
+          className="w-20 h-20 mb-4"
+          style={{ imageRendering: 'pixelated' }}
+        />
+        <p className="text-xl text-gray-700 font-medium">Loading films...</p>
+      </div>
+    );
+  }
+
   return (
     <div className="p-4">
       <div className="flex flex-col items-center justify-center mb-4">
@@ -115,7 +176,6 @@ function Films() {
                   src={imgSrc}
                   alt={film.title}
                   className="w-full h-auto aspect-[3/4] object-top shadow-md hover:shadow-xl"
-                  loading="lazy"
                 />
               ) : (
                 <div className="w-full h-auto aspect-[3/4] bg-gray-200 flex items-center justify-center rounded">
