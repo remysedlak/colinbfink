@@ -10,8 +10,6 @@ import Footer from './components/Footer';
 import './index.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
     <div className="h-dvh flex flex-col">
@@ -30,8 +28,7 @@ function App() {
           <Footer />
         </div>
       </div>
-    </div>
-      
+    </div> 
     </>
   )
 }
